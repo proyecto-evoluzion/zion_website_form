@@ -13,7 +13,7 @@
 			        <div class="row" style="margin-bottom: 5%;">
 			          <div class="form-group main__search--input">
 			          	<h2>Ingresa tu numero de cédula</h2>
-			            <input type="text" name="name" class="form-control" t-att-value="name" placeholder="Buscar..."/>
+			            <input type="text" name="name" class="form-control search-input" t-att-value="name" placeholder="Buscar..."/>
 			          </div>
 			        </div>
 		          <div class="main__search--button">
@@ -42,6 +42,28 @@
 	  <field name="sequence" type="int">99</field>
 	  <field name="active">True</field>
 	</record>
+
+	<!--Pagina de paciente no encontrado-->
+
+	<!-- 1. Template de la pagina -->
+    <template id="patient_not_found_template">
+        <t t-call="website.layout">
+            <div class="main__noFound">
+		        <div class="row main__noFound--item">
+		        	<h1 style="text-align: center;">Disculpe, Los datos insertados no se encuentran registrado en nuestro sistema.</h1>
+		        	<img src="/zion_website_form/static/img/noFound.png" class="img-responsive" alt="Not Found"/>
+		        </div>
+		    </div>
+        </t>
+    </template>
+
+    <!-- 2. Record de la pagina -->
+    <record id="patient_not_found_page" model="website.page">
+        <field name="name">404</field>
+        <field name="website_published">True</field>
+        <field name="url">/page/notfound</field>
+        <field name="view_id" ref="patient_not_found_template"/>
+    </record>
 
   </data>
 </odoo>

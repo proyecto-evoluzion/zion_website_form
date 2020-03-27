@@ -155,8 +155,7 @@ class PatientController(http.Controller):
 								'Victima Vinculado'],
 			}
 		else:
-			'El paciente no existe'
-			return http.local_redirect('/')
+			return http.local_redirect('/page/notfound')
 
 		return http.request.render('zion_website_form.atencion_page_template', {
 			'data': patient_data})
