@@ -1,0 +1,31 @@
+.main__patientContent{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main__patientContent div{
+  /*margin: 35px 40px;*/
+  color: #ecfeff;
+}
+
+.main__patientContent div label{
+  color: #ecfeff;
+  font-size: 18px;
+  margin: 15px 0px 15px 0px;
+}
+
+.main__patientContent div label input{
+  margin: 10px 0px 15px 0px;
+}
+
+.main__search--button{
+  text-align: center;
+  margin: 40px 0px 20px 0px;
+}
+
+.custom__button{
+  width: 25%;
+  font-size: 18px;
+}

@@ -1,0 +1,73 @@
+.form{
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 183, 194, 0.9) 0%, rgb(18, 132, 148) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__search--input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__search--input input{
+    background-color: rgba(255,255,255,0.1);
+    border: 2px solid #ecfeff;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli' ;
+    font-size: 16px;
+    height: 50px;
+    padding: 0px 20px;
+    width: 70%;
+}
+::placeholder{
+    color: #ecfeff;
+}
+
+.main__search--input h2{
+    color: #ecfeff;
+    margin-bottom: 12%;
+    text-align: center;
+    font-size: 38px;
+}
+
+.main__search--button button span{
+    font-size: 19px;
+}
+
+.modal-btn {
+  text-align: center;
+  padding: .6em .8em .8em;
+  border: none;
+  color: #ecfeff;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset 0 -.2em rgba(0,0,0, .4);
+  outline: 0;
+  transition: .2s;
+  will-change: transform;
+}
+.modal-btn.primary {
+  background: #4ef037;
+}
+.modal-btn.warning {
+  background: #4ef037;
+}
+
+.modal-btn:active {
+  transform: scale(.9);
+}

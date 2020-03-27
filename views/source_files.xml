@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<!--Formato para incluir JavaScript al lado del BackEnd-->
+
+        <!-- <template id="assets_backend" name="web_noify assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/bus_bus/static/src/js/web_client.js"/>
+            </xpath>
+        </template> -->
+
+        <!--Formato para incluir CSS al lado del FrontEnd-->
+        <template id="zion_front_styles" name="zion.front.styles" inherit_id="website.assets_frontend">
+		    <xpath expr="link[last()]" position="after">
+		        <link href="/zion_website_form/static/css/search-content.css" rel="stylesheet" type="text/css"/>
+		        <link href="/zion_website_form/static/css/patient-form.css" rel="stylesheet" type="text/css"/>
+		    </xpath>
+		</template>
+
+    </data>
+</odoo>

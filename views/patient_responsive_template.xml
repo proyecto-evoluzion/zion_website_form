@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+  	<!-- 1. Template de la pagina -->
+    <template id="atencion_page_template">
+        <t t-call="website.layout">
+            <form action="/post/data" method="post" class="form">
+			    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+			    <div class="container main__patient">
+			        <div class="row main__patientContent">
+			          <input type="text" name="id" class="form-control" t-attf-value="{{ data['id'] }}" style="display:none;"/>
+			          <div class="form-group">
+			            <label for="name">Primer Nombre</label>
+			            <input type="text" name="firstname" class="form-control" t-attf-value="{{ data['firstname'] }}"/>
+			            <label for="name">Segundo Apellido</label>
+			            <input type="text" name="surname" class="form-control" t-attf-value="{{ data['surname'] }}"/>
+			            <label for="name">Tipo de Usuario</label><br/>
+			            <select name="user_type" style="color:#555555;">
+                            <t t-foreach="data['user_type']" t-as="user"><option name="userT" t-att-value="user" t-esc="user"></option></t>
+                        </select><br/>
+                        <label for="name">Aseguradora</label><br/>
+			            <select name="insurer_id" style="color:#555555;">
+                            <t t-foreach="data['insurer_id']" t-as="insurer"><option name="typeInsurer" t-att-value="insurer.id" t-esc="insurer.name"></option></t>
+                        </select>
+			          </div>
+
+			          <div class="form-group">
+			            <label for="name">Segundo Nombre</label>
+			            <input type="text" name="middlename" class="form-control" t-attf-value="{{ data['middlename'] }}"/>
+			            <label for="name">Edad</label>
+			            <input type="text" name="age" class="form-control" t-attf-value="{{ data['age'] }}"/>
+			            <label for="name" class="control-label">Tipo de sangre</label><br/>
+			            <span>
+			            	<select name="typeBlood" style="color:#555555;">
+	                            <t t-foreach="data['blood_type']" t-as="blood"><option name="typeB" t-att-value="blood" t-esc="blood"></option></t>
+	                        </select>
+	                        <select name="typeRh" style="color:#555555;">
+	                            <t t-foreach="data['blood_rh']" t-as="rh"><option name="typeR" t-att-value="rh" t-esc="rh"></option></t>
+	                        </select><br/>
+	                    </span>
+			            <label for="name">Teléfono</label>
+			            <input type="text" name="phone" class="form-control" t-attf-value="{{ data['phone'] }}"/>
+                        
+			          </div>
+
+			          <div class="form-group">
+			          	<label for="name">Primer Apellido</label>
+			            <input type="text" name="lastname" class="form-control" t-attf-value="{{ data['lastname'] }}"/>
+			            <label for="name">Género</label><br/>
+			            <select name="sex" style="color:#555555;">
+                            <t t-foreach="data['sex']" t-as="sex"><option name="typeSex" t-att-value="sex" t-esc="sex"></option></t>
+                        </select><br/>
+                        <label for="name">Email</label>
+			            <input type="text" name="email" class="form-control" t-attf-value="{{ data['email'] }}"/>
+	                    <label for="name">Dirección</label>
+			            <input type="text" name="residence_address" class="form-control" t-attf-value="{{ data['residence_address'] }}"/>
+			          </div>
+
+			          <!-- <div class="form-group">
+			            <label for="name">Segundo Apellido</label>
+			            <input type="text" name="surname" class="form-control" t-attf-value="{{ data['surname'] }}"/>
+			            <label for="name">Tipo de Usuario</label><br/>
+			            <select name="user_type" style="color:#555555;">
+                            <t t-foreach="data['user_type']" t-as="user"><option name="userT" t-att-value="user" t-esc="user"></option></t>
+                        </select><br/>
+                        <label for="name">Aseguradora</label><br/>
+			            <select name="insurer_id" style="color:#555555;">
+                            <t t-foreach="data['insurer_id']" t-as="insurer"><option name="typeInsurer" t-att-value="insurer.id" t-esc="insurer.name"></option></t>
+                        </select>
+			          </div> -->
+
+			        </div>
+
+			        <div class="row">
+			        	<div class="main__search--button">
+				            <button type="submit" class="modal-btn primary custom__button">
+				              Enviar <span class="fa fa-long-arrow-right"/>
+				            </button>
+				         </div>
+			        </div>
+			    </div>
+			</form>
+        </t>
+    </template>
+
+    <!-- 2. Record de la pagina -->
+    <record id="atencion_cita_page" model="website.page">
+        <field name="name">Atención Cita Page</field>
+        <field name="website_published">True</field>
+        <field name="url">/page/atencion</field>
+        <field name="view_id" ref="atencion_page_template"/>
+    </record>
+
+    <!-- 3. Record del menu de la pagina -->
+    <record id="website_tablet_menu" model="website.menu">
+	  <field name="name">Atención de cita</field>
+	  <field name="page_id" ref="atencion_cita_page"/>
+	  <field name="parent_id" ref="website.main_menu"/>
+	  <field name="sequence" type="int">99</field>
+	  <field name="active">False</field>
+	</record>
+
+  </data>
+</odoo>
