@@ -29,3 +29,26 @@
   width: 25%;
   font-size: 18px;
 }
+
+.secondary__patientContent{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.secondary__patientContent div label{
+  color: #ecfeff;
+  font-size: 18px;
+  margin: 15px 0px 15px 0px;
+}
+
+.last__patientContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.last__patientContent div label{
+  color: #ecfeff;
+  font-size: 18px;
+  margin: 15px 0px 15px 0px;
+}

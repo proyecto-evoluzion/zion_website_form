@@ -15,6 +15,7 @@
     'views/patient_responsive_template.xml',
     'views/search_appointment.xml',
     'views/source_files.xml',
+    # 'security/ir.model.access.csv',
   ],
 
 

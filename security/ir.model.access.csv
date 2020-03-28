@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_group_public,access_group_public,clinica_digital_consultorio.model_doctor_patient,base.group_public,1,1,1,0
+access_group_public_res_country_state_city,access_group_public_res_country_state_city,l10n_co_res_partner.model_res_partner,base.group_public,1,1,1,0
+access_group_public_res_partner,access_group_public_res_partner,base.model_res_partner,base.group_public,1,1,1,0
