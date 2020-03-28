@@ -36,7 +36,7 @@
 
     <!-- 3. Record del menu de la pagina -->
     <record id="search_appointment_menu" model="website.menu">
-	  <field name="name">Buscar Cita</field>
+	  <field name="name">Consultar Cita</field>
 	  <field name="page_id" ref="search_appointment_page"/>
 	  <field name="parent_id" ref="website.main_menu"/>
 	  <field name="sequence" type="int">99</field>
