@@ -29,8 +29,8 @@
 			          <div class="form-group">
 			            <label for="name">Segundo Nombre</label>
 			            <input type="text" name="middlename" class="form-control" t-attf-value="{{ data['middlename'] }}"/>
-			            <label for="name">Edad</label>
-			            <input type="text" name="age" class="form-control" t-attf-value="{{ data['age'] }}"/>
+			            <label for="name">Fecha Nacimiento</label>
+			            <input type="date" name="age" class="form-control" t-att-value="age"/>
 			            <label for="name">Teléfono</label>
 			            <input type="text" name="phone" class="form-control" t-attf-value="{{ data['phone'] }}"/>
                         <label for="name" class="control-label">Tipo de sangre</label><br/>
@@ -65,13 +65,13 @@
 				        	<div class="form-group">
 				        		<label for="name">País</label><br/>
 					            <select name="birth_country_id" style="color:#555555;">
-		                            <t t-foreach="data['country_id']" t-as="bitrh_country"><option name="birthC" t-att-value="bitrh_country.id" t-esc="bitrh_country.name"></option></t>
+		                            <t t-foreach="data['residence_country_id']" t-as="bitrh_country"><option name="birthC" t-att-value="bitrh_country.id" t-esc="bitrh_country.name"></option></t>
 		                        </select>
 				        	</div>
 				        	<div class="form-group">
 				        		<label for="name">Procedencia</label><br/>
 					            <select name="provenance_country_id" style="color:#555555;">
-		                            <t t-foreach="data['country_id']" t-as="provenance_country"><option name="provenanceC" t-att-value="provenance_country.id" t-esc="provenance_country.name"></option></t>
+		                            <t t-foreach="data['residence_country_id']" t-as="provenance_country"><option name="provenanceC" t-att-value="provenance_country.id" t-esc="provenance_country.name"></option></t>
 		                        </select>
 				        	</div>
 				        </div>
