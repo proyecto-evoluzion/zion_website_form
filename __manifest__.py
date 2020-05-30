@@ -20,5 +20,5 @@
 
 
   'category': 'website',
-  'depends': ['base','website','clinica_digital_consultorio'],
+  'depends': ['base','website'],
 }
