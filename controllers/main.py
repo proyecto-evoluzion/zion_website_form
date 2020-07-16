@@ -248,3 +248,11 @@ class PatientController(http.Controller):
 
 		return http.request.render('zion_website_form.atencion_page_template', {
 			'data': patient_data})
+
+	@http.route('/page/patienAuth', auth='public', website=True)
+	def patient_auth(self, **kw):
+		cat = http.request.env['clinica.patient.auth']
+		
+		return http.request.render('zion_website_form.patient_auth_template', {
+			'auth': cat.search([])
+			})

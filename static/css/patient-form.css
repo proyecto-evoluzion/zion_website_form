@@ -23,6 +23,24 @@
 .main__search--button{
   text-align: center;
   margin: 40px 0px 20px 0px;
+  display: none;
+}
+
+.main__search--button-hidde{
+  text-align: center;
+  margin: 40px 0px 20px 0px;
+  opacity: 0.3;
+}
+
+.modal-btn{
+  cursor: unset !important;
+}
+
+.btn-info:hover {
+
+  color: #ecfeff;
+  background-color: lightgray;
+
 }
 
 .custom__button{
@@ -65,4 +83,18 @@
 .line-space{
   border-bottom: 1px dashed white;
   padding-top: 3%;
+}
+
+.auth-link{
+  color: #4ef037;
+}
+
+.auth-link:hover{
+  color: #333333;
+}
+
+p{
+  font-size: 18px;
+  text-align: center;
+  margin-top: 15px;
 }

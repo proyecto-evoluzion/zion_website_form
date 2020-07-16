@@ -16,7 +16,7 @@
 			            <input type="text" name="name" class="form-control search-input" t-att-value="name" placeholder="Buscar..."/>
 			          </div>
 			        </div>
-		          <div class="main__search--button">
+		          <div class="main__search--button" style="display:block">
 		            <button type="submit" class="modal-btn primary">
 		              <span>Consultar</span><span class="fa fa-long-arrow-right"/>
 		            </button>

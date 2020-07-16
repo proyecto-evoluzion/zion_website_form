@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+  	<!-- 1. Template de la pagina -->
+    <template id="atencion_page_template">
+        <t t-call="website.layout">
+            <form action="/post/data" method="post" class="form" id="patientForm">
+			    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+			    <div class="container main__patient">
+			    	<h1 style="color:#ecfeff; margin-top: 12px; text-align: center;">Datos personales</h1>
+			        <div class="row main__patientContent">
+			          <input type="text" name="id" class="form-control" t-attf-value="{{ data['id'] }}" style="display:none;"/>
+			          <div class="form-group">
+			            <label for="name">Primer Nombre</label>
+			            <input type="text" name="firstname" class="form-control" t-attf-value="{{ data['firstname'] }}"/>
+			            <label for="name">Segundo Apellido</label>
+			            <input type="text" name="surname" class="form-control" t-attf-value="{{ data['surname'] }}"/>
+			            <label for="name">Tipo de Usuario</label><br/>
+			            <select name="user_type" style="color:#555555;">
+                            <t t-foreach="data['user_type']" t-as="user"><option name="userT" t-att-value="user" t-esc="user"></option></t>
+                        </select><br/>
+                        <label for="name">Aseguradora</label><br/>
+			            <select name="insurer_id" style="color:#555555;">
+                            <t t-foreach="data['insurer_id']" t-as="insurer"><option name="typeInsurer" t-att-value="insurer.id" t-esc="insurer.name"></option></t>
+                        </select>
+			          </div>
+
+			          <div class="form-group">
+			            <label for="name">Segundo Nombre</label>
+			            <input type="text" name="middlename" class="form-control" t-attf-value="{{ data['middlename'] }}"/>
+			            <label for="name">Fecha Nacimiento</label>
+			            <input type="date" name="age" class="form-control" t-att-value="age"/>
+			            <label for="name">Teléfono</label>
+			            <input type="text" name="phone" class="form-control" t-attf-value="{{ data['phone'] }}"/>
+                        <label for="name" class="control-label">Tipo de sangre</label><br/>
+			            <span>
+			            	<select name="typeBlood" style="color:#555555;">
+	                            <t t-foreach="data['blood_type']" t-as="blood"><option name="typeB" t-att-value="blood" t-esc="blood"></option></t>
+	                        </select>
+	                        <select name="typeRh" style="color:#555555;">
+	                            <t t-foreach="data['blood_rh']" t-as="rh"><option name="typeR" t-att-value="rh" t-esc="rh"></option></t>
+	                        </select><br/>
+	                    </span>
+			          </div>
+
+			          <div class="form-group">
+			          	<label for="name">Primer Apellido</label>
+			            <input type="text" name="lastname" class="form-control" t-attf-value="{{ data['lastname'] }}"/>
+			            <label for="name">Género</label><br/>
+			            <select name="sex" style="color:#555555;">
+                            <t t-foreach="data['sex']" t-as="sex"><option name="typeSex" t-att-value="sex" t-esc="sex"></option></t>
+                        </select><br/>
+                        <label for="name">Email</label>
+			            <input type="text" name="email" class="form-control" t-attf-value="{{ data['email'] }}"/>
+			            <label for="name">Tipo Vinculación</label><br/>
+			            <select name="link_type" style="color:#555555;">
+                            <t t-foreach="data['link_type']" t-as="link"><option name="typeInsurer" t-att-value="link" t-esc="link"></option></t>
+                        </select>
+			          </div>
+			        </div>
+			        <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Lugar de Nacimiento</h1>
+			        <div class="row">
+				        <div class="secondary__patientContent">
+				        	<div class="form-group">
+				        		<label for="name">País</label><br/>
+					            <select name="birth_country_id" style="color:#555555;">
+		                            <t t-foreach="data['residence_country_id']" t-as="bitrh_country"><option name="birthC" t-att-value="bitrh_country.id" t-esc="bitrh_country.name"></option></t>
+		                        </select>
+				        	</div>
+				        	<div class="form-group">
+				        		<label for="name">Procedencia</label><br/>
+					            <select name="provenance_country_id" style="color:#555555;">
+		                            <t t-foreach="data['residence_country_id']" t-as="provenance_country"><option name="provenanceC" t-att-value="provenance_country.id" t-esc="provenance_country.name"></option></t>
+		                        </select>
+				        	</div>
+				        </div>
+				    </div>
+				    <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Lugar de Residencia</h1>
+			        <div class="row">
+				        <div class="secondary__patientContent">
+				        	<div class="form-group">
+				        		<label for="name">País</label><br/>
+					            <select name="residence_country_id" style="color:#555555;">
+		                            <t t-foreach="data['residence_country_id']" t-as="resdence"><option name="resdence" t-att-value="resdence.id" t-esc="resdence.name"></option></t>
+		                        </select><br/>
+		                        <label for="name">Ciudad/Localidad</label><br/>
+					            <select name="residence_city_id" style="color:#555555;">
+		                            <t t-foreach="data['residence_city_id']" t-as="city"><option name="city" t-att-value="city.id" t-esc="city.name"></option></t>
+		                        </select>
+				        	</div>
+				        	<div class="form-group">
+				        		<label for="name">Departamento</label><br/>
+					            <select name="residence_department_id" style="color:#555555; max-width: 270px;">
+		                            <t t-foreach="data['residence_department_id']" t-as="department"><option name="department" t-att-value="department.id" t-esc="department.name"></option></t>
+		                        </select><br/>
+		                        <label for="name">Dirección Residencia</label>
+			            		<input type="text" name="residence_address" class="form-control" t-attf-value="{{ data['residence_address'] }}"/>
+				        	</div>
+				        </div>
+				        <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Otros Datos</h1>
+				        <div class="row">
+					        <div class="secondary__patientContent">
+					        	<div class="form-group">
+					        		<label for="name">Estado Civil</label><br/>
+						            <select name="civil_state" style="color:#555555;">
+			                            <t t-foreach="data['civil_state']" t-as="civil"><option name="civil" t-att-value="civil" t-esc="civil"></option></t>
+			                        </select>
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="name">Ocupación</label><br/>
+						            <input type="text" name="occupation" class="form-control" t-attf-value="{{ data['occupation'] }}"/>
+					        	</div>
+					        </div>
+					    </div>
+					    <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Datos del Acompañante</h1>
+				        <div class="row">
+					        <div class="secondary__patientContent">
+					        	<div class="form-group">
+					        		<label for="name">Nombre</label><br/>
+						            <input type="text" name="accompany_name" class="form-control" t-attf-value="{{ data['accompany_name'] }}"/>
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="name">Parentesco</label><br/>
+						            <select name="accompany_relationship" style="color:#555555;">
+			                            <t t-foreach="data['accompany_relationship']" t-as="realtion"><option name="realtion" t-att-value="realtion" t-esc="realtion"></option></t>
+			                        </select><br/>
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="name">Número de Teléfono</label><br/>
+						            <input type="text" name="accompany_phone" class="form-control" t-attf-value="{{ data['accompany_phone'] }}"/>
+					        	</div>
+					        	<input type="text" name="copy_responsible_info" class="form-control" t-att-value="True" style="display:none;"/>
+					        </div>
+					    </div>
+					    <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Motivo de Consulta</h1>
+				        <div class="row">
+					        <div class="last__patientContent">
+					        	<div class="form-group">
+					        		<textarea style="max-width: 270px;" rows="4" cols="50" name="consultation_reason" class="form-control" form="patientForm" t-attf-value="{{ data['consultation_reason'] }}"></textarea>
+					        		<!-- <input type="text" name="consultation_reason" class="form-control" t-attf-value="{{ data['consultation_reason'] }}"/> -->
+					        	</div>
+					        </div>
+					    </div>
+				    </div>
+
+			        <div class="row">
+			        	<div class="main__search--button">
+				            <button type="submit" class="modal-btn primary custom__button">
+				              Enviar <span class="fa fa-long-arrow-right"/>
+				            </button>
+				         </div>
+			        </div>
+			    </div>
+			</form>
+        </t>
+    </template>
+
+    <!-- 2. Record de la pagina -->
+    <record id="atencion_cita_page" model="website.page">
+        <field name="name">Atención Cita Page</field>
+        <field name="website_published">True</field>
+        <field name="url">/page/atencion</field>
+        <field name="view_id" ref="atencion_page_template"/>
+    </record>
+
+    <!-- 3. Record del menu de la pagina -->
+    <record id="website_tablet_menu" model="website.menu">
+	  <field name="name">Atención de cita</field>
+	  <field name="page_id" ref="atencion_cita_page"/>
+	  <field name="parent_id" ref="website.main_menu"/>
+	  <field name="sequence" type="int">99</field>
+	  <field name="active">False</field>
+	</record>
+
+  </data>
+</odoo>

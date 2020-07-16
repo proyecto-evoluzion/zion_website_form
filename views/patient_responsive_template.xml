@@ -163,16 +163,42 @@
 			        		<textarea style="max-width: 270px;" rows="4" cols="50" name="consultation_reason" class="form-control" form="patientForm" t-attf-value="{{ data['consultation_reason'] }}"></textarea>
 			        	</div>
 			        </div>
+			        <div>
+		        		<p>
+		        			<span>
+		        				<input type="checkbox" id="checkInput" style="max-width: 50%;" onclick="checkAuth()"/>
+		        			</span>Acepto y autorizo los 
+		        			<a href="/page/patienAuth" target="_blank" class="auth-link">terminos y condiciones.</a>
+		        		</p>
+		        	</div>
 
 			        <div class="row">
-			        	<div class="main__search--button">
+			        	<div class="main__search--button-hidde" id="buttonToHidde">
+			        		<a href="#" class="modal-btn btn btn-info custom__button" role="button">Enviar <span class="fa fa-long-arrow-right"/></a>
+				            
+				         </div>
+			        	<div class="main__search--button" id="buttonToShow">
 				            <button type="submit" class="modal-btn primary custom__button">
 				              Enviar <span class="fa fa-long-arrow-right"/>
 				            </button>
-				         </div>
+				        </div>
 			        </div>
 			    </div>
 			</form>
+			<script>
+          		function checkAuth(){
+          			var checkInput = document.querySelector("#checkInput").checked;
+          			if(checkInput === true){
+          				document.getElementById("buttonToHidde").style.display = 'none';
+              			document.getElementById("buttonToShow").style.display = 'block';
+              			document.getElementById("buttonToShow").style.cursor = 'pointer';
+          			}else{
+          				document.getElementById("buttonToHidde").style.display = 'block';
+              			document.getElementById("buttonToShow").style.display = 'none';
+          			}
+              		
+              	};
+        	</script>
         </t>
     </template>
 

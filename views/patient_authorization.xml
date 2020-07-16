@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+
+	
+	<record id="patient_auth_view_form" model="ir.ui.view">
+         <field name="name">patient.auth.view.form</field>
+         <field name="model">clinica.patient.auth</field>
+         <field name="arch" type="xml">
+              <form string="Patient Auth">
+                    <h2>Tipo Autorización</h2>
+                    <h2><field name='name'/></h2>
+                    <field name='auth_text' nolabel="1"/>
+              </form>
+         </field>
+     </record>
+
+     <record id="patient_auth_view_tree" model="ir.ui.view">
+          <field name="name">patient.auth.view.tree</field>
+          <field name="model">clinica.patient.auth</field>
+          <field name="arch" type="xml">
+               <tree string="Patient Auth Tree">
+                    <field name="name"/>
+                    <field name="auth_text"/>
+               </tree>
+          </field>
+     </record>
+
+     <record id="action_clinica_patient_auth" model="ir.actions.act_window">
+            <field name="name">Autorizaciones</field>
+            <field name="res_model">clinica.patient.auth</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="patient_auth_view_tree"/>
+        </record> 
+        
+        <menuitem id="menu_clinica_patient_auth"
+            name="Autorizacion de paciente"
+            parent="clinica_doctor_data.calendar_cancel_menu"
+            action="action_clinica_patient_auth"
+            sequence="9"
+            groups="base.group_system,base.group_erp_manager"
+            />
+
+     <!-- 1. Template de la pagina -->
+    <template id="patient_auth_template">
+        <t t-call="website.layout">
+        	<div class="oe_structure"/>
+         	<style>
+	          
+        	</style>
+        	<div class="container">
+        	  <div class="row">
+        	    <h3 style="text-align:center">Autorizacion uso de datos</h3>
+        	  </div>
+        	</div>
+        	<div class="container">
+            <div class="main-box row">
+              <div class="col-md-12">
+                <t t-foreach="auth" t-as="data">
+                  <p><t t-esc="data.auth_text"/></p>
+                </t>
+              </div>
+            </div>
+          </div>
+          <div class="oe_structure"/>
+        </t>
+    </template>
+
+    <!-- 2. Record de la pagina -->
+    <record id="patient_auth_page" model="website.page">
+        <field name="name">Auth Patient Page</field>
+        <field name="website_published">True</field>
+        <field name="url">/page/patienAuth</field>
+        <field name="view_id" ref="patient_auth_template"/>
+    </record>
+
+    <!-- 3. Record del menu de la pagina -->
+    <record id="website_page_menu" model="website.menu">
+      <field name="name">Auth Patient</field>
+      <field name="page_id" ref="patient_auth_page"/>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">99</field>
+      <field name="active">False</field>
+    </record>
+    
+</odoo>
+
+
