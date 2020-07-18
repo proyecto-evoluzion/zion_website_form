@@ -30,7 +30,7 @@
 			          </div>
 			          <div class="input-text">
 			          	<label for="name">Fecha Nacimiento</label><br/>
-			            <input type="date" name="age" class="form-control" t-att-value="age"/>
+			            <input type="date" name="age" class="form-control" t-attf-value="{{ data['age'] }}"/>
 			          </div>
 			          <div class="input-text">
 			          	<label for="name">Género</label><br/>

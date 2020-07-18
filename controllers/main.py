@@ -168,23 +168,93 @@ class PatientController(http.Controller):
 			else:
 				sex = 'Femenino'
 
+			# Para pasar los datos tipo sangre en el formato correcto
+			if patient_search_name.blood_type == 'a':
+				blood_type = 'A'
+			elif patient_search_name.blood_type == 'b':
+				blood_type = 'B'
+			elif patient_search_name.blood_type == 'ab':
+				blood_type = 'AB'
+			else:
+				blood_type = 'O'
+
+			# Para pasar los datos tipo sangre +- en el formato correcto
+			if patient_search_name.blood_rh == 'positive':
+				blood_rh = '+'
+			else:
+				blood_rh = '-'
+
+			# Para pasar los datos tipo usuario en el formato correcto
+			if patient_search_name.user_type == 'contributory':
+				user_type = 'Contributivo'
+			elif patient_search_name.user_type == 'subsidized':
+				user_type = 'Subsidiado'
+			elif patient_search_name.user_type == 'linked':
+				user_type = 'Vinculado'
+			elif patient_search_name.user_type == 'particular':
+				user_type = 'Particular'
+			elif patient_search_name.user_type == 'other':
+				user_type = 'Otro'
+			elif patient_search_name.user_type == 'victim_contributive':
+				user_type = 'Victima Contributivo'
+			elif patient_search_name.user_type == 'victim_subsidized':
+				user_type = 'Victima Subsidiado'
+			else:
+				user_type = 'Victima Vinculado'
+
+			# Para pasar los datos de tipo vinculacion en el formato correcto
+			if patient_search_name.link_type == 'contributor':
+				link_type = 'Contribuyente'
+			else:
+				link_type = 'Beneficiario'
+
+			# Para pasar los datos estado civil en el formato correcto
+			if patient_search_name.civil_state == 'separated':
+				civil_state = 'Separada/o'
+			elif patient_search_name.civil_state == 'single':
+				civil_state = 'Soltera/o'
+			elif patient_search_name.civil_state == 'married':
+				civil_state = 'Casada/o'
+			elif patient_search_name.civil_state == 'free_union':
+				civil_state = 'Unión Libre'
+			else:
+				civil_state = 'Viuda/o'
+
+			# Para pasar los datos acompanante en el formato correcto
+			if patient_search_name.accompany_relationship == 'mother':
+				accompany_relationship = 'Madre'
+			elif patient_search_name.accompany_relationship == 'father':
+				accompany_relationship = 'Padre'
+			elif patient_search_name.accompany_relationship == 'grand_father':
+				accompany_relationship = 'Abuelo'
+			elif patient_search_name.accompany_relationship == 'grand_mother':
+				accompany_relationship = 'Abuela'
+			elif patient_search_name.accompany_relationship == 'uncle':
+				accompany_relationship = 'Tío'
+			elif patient_search_name.accompany_relationship == 'aunt':
+				accompany_relationship = 'Tía'
+			elif patient_search_name.accompany_relationship == 'friend':
+				accompany_relationship = 'Amigo/a'
+			else:
+				accompany_relationship = 'Otro'
+
 			patient_data = {
 				'id': patient_search_name.id,
 				'firstname': patient_search_name.firstname,
 				'middlename': patient_search_name.middlename,
 				'lastname': patient_search_name.lastname,
 				'surname': patient_search_name.surname,
-				'blood_rh': ['','+','-'],
-				'blood_type': ['','A','B','AB','O'],
-				'link_type': ['','Contribuyente','Beneficiario'],
-				# 'age': patient_search_name.age,
+				'blood_rh': [blood_rh,'+','-'],
+				'blood_type': [blood_type,'A','B','AB','O'],
+				'link_type': [link_type,'Contribuyente','Beneficiario'],
+				'age': str(patient_search_name.birth_date),
 				'residence_address': patient_search_name.residence_address,
 				'accompany_phone': patient_search_name.accompany_phone,
 				'email': patient_search_name.email,
 				'phone': patient_search_name.phone,
 				'accompany_name': patient_search_name.accompany_name,
 				'accompany_phone': patient_search_name.accompany_phone,
-				'sex': ['','Femenino','Masculino'],
+				'sex': [sex,'Femenino','Masculino'],
 				'insurer_id': insurer_id,
 				'country_id': country_id,
 				'residence_country_id': residence_country_id,
@@ -192,9 +262,9 @@ class PatientController(http.Controller):
 				'residence_city_id': residence_city_id,
 				'occupation': patient_search_name.occupation,
 				'consultation_reason': patient_search_name.consultation_reason,
-				'civil_state': ['','Separada/o','Soltera/o','Casada/o','Unión Libre','Viuda/o'],
-				'accompany_relationship': ['','Madre','Padre','Abuelo','Abuela','Tío','Tía','Amigo/a','Otro'],
-				'user_type': ['','Contributivo',
+				'civil_state': [civil_state,'Separada/o','Soltera/o','Casada/o','Unión Libre','Viuda/o'],
+				'accompany_relationship': [accompany_relationship,'Madre','Padre','Abuelo','Abuela','Tío','Tía','Amigo/a','Otro'],
+				'user_type': [user_type,'Contributivo',
 								'Subsidiado',
 								'Vinculado',
 								'Particular',
@@ -209,22 +279,92 @@ class PatientController(http.Controller):
 			else:
 				sex = 'Femenino'
 
+			# Para pasar los datos tipo sangre en el formato correcto
+			if patient_search_ref.blood_type == 'a':
+				blood_type = 'A'
+			elif patient_search_ref.blood_type == 'b':
+				blood_type = 'B'
+			elif patient_search_ref.blood_type == 'ab':
+				blood_type = 'AB'
+			else:
+				blood_type = 'O'
+
+			# Para pasar los datos tipo sangre +- en el formato correcto
+			if patient_search_ref.blood_rh == 'positive':
+				blood_rh = '+'
+			else:
+				blood_rh = '-'
+
+			# Para pasar los datos tipo usuario en el formato correcto
+			if patient_search_ref.user_type == 'contributory':
+				user_type = 'Contributivo'
+			elif patient_search_ref.user_type == 'subsidized':
+				user_type = 'Subsidiado'
+			elif patient_search_ref.user_type == 'linked':
+				user_type = 'Vinculado'
+			elif patient_search_name.user_type == 'particular':
+				user_type = 'Particular'
+			elif patient_search_ref.user_type == 'other':
+				user_type = 'Otro'
+			elif patient_search_ref.user_type == 'victim_contributive':
+				user_type = 'Victima Contributivo'
+			elif patient_search_ref.user_type == 'victim_subsidized':
+				user_type = 'Victima Subsidiado'
+			else:
+				user_type = 'Victima Vinculado'
+
+			# Para pasar los datos de tipo vinculacion en el formato correcto
+			if patient_search_ref.link_type == 'contributor':
+				link_type = 'Contribuyente'
+			else:
+				link_type = 'Beneficiario'
+
+			# Para pasar los datos estado civil en el formato correcto
+			if patient_search_ref.civil_state == 'separated':
+				civil_state = 'Separada/o'
+			elif patient_search_ref.civil_state == 'single':
+				civil_state = 'Soltera/o'
+			elif patient_search_ref.civil_state == 'married':
+				civil_state = 'Casada/o'
+			elif patient_search_ref.civil_state == 'free_union':
+				civil_state = 'Unión Libre'
+			else:
+				civil_state = 'Viuda/o'
+
+			# Para pasar los datos acompanante en el formato correcto
+			if patient_search_ref.accompany_relationship == 'mother':
+				accompany_relationship = 'Madre'
+			elif patient_search_ref.accompany_relationship == 'father':
+				accompany_relationship = 'Padre'
+			elif patient_search_ref.accompany_relationship == 'grand_father':
+				accompany_relationship = 'Abuelo'
+			elif patient_search_ref.accompany_relationship == 'grand_mother':
+				accompany_relationship = 'Abuela'
+			elif patient_search_ref.accompany_relationship == 'uncle':
+				accompany_relationship = 'Tío'
+			elif patient_search_ref.accompany_relationship == 'aunt':
+				accompany_relationship = 'Tía'
+			elif patient_search_ref.accompany_relationship == 'friend':
+				accompany_relationship = 'Amigo/a'
+			else:
+				accompany_relationship = 'Otro'
+
 			patient_data = {
 				'id': patient_search_ref.id,
 				'firstname': patient_search_ref.firstname,
 				'middlename': patient_search_ref.middlename,
 				'lastname': patient_search_ref.lastname,
 				'surname': patient_search_ref.surname,
-				'blood_rh': ['','+','-'],
-				'blood_type': ['','A','B','AB','O'],
-				'link_type': ['','Contribuyente','Beneficiario'],
-				# 'age': patient_search_ref.age,
+				'blood_rh': [blood_rh,'+','-'],
+				'blood_type': [blood_type,'A','B','AB','O'],
+				'link_type': [link_type,'Contribuyente','Beneficiario'],
+				'age': str(patient_search_name.birth_date),
 				'residence_address': patient_search_ref.residence_address,
 				'email': patient_search_ref.email,
 				'phone': patient_search_ref.phone,
 				'accompany_name': patient_search_ref.accompany_name,
 				'accompany_phone': patient_search_ref.accompany_phone,
-				'sex': ['','Femenino','Masculino'],
+				'sex': [sex,'Femenino','Masculino'],
 				'insurer_id': insurer_id,
 				'country_id': country_id,
 				'residence_country_id': residence_country_id,
@@ -232,9 +372,9 @@ class PatientController(http.Controller):
 				'residence_city_id': residence_city_id,
 				'occupation': patient_search_ref.occupation,
 				'consultation_reason': patient_search_ref.consultation_reason,
-				'civil_state': ['','Separada/o','Soltera/o','Casada/o','Unión Libre','Viuda/o'],
-				'accompany_relationship': ['','Madre','Padre','Abuelo','Abuela','Tío','Tía','Amigo/a','Otro'],
-				'user_type': ['','Contributivo',
+				'civil_state': [civil_state,'Separadas/o','Soltera/o','Casada/o','Unión Libre','Viuda/o'],
+				'accompany_relationship': [accompany_relationship,'Madre','Padre','Abuelo','Abuela','Tío','Tía','Amigo/a','Otro'],
+				'user_type': [user_type,'Contributivo',
 								'Subsidiado',
 								'Vinculado',
 								'Particular',
@@ -254,5 +394,5 @@ class PatientController(http.Controller):
 		cat = http.request.env['clinica.patient.auth']
 		
 		return http.request.render('zion_website_form.patient_auth_template', {
-			'auth': cat.search([])
+			'auth': cat.sudo().search([])
 			})

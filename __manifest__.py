@@ -16,7 +16,7 @@
     'views/search_appointment.xml',
     'views/source_files.xml',
     'views/patient_authorization.xml',
-    # 'security/ir.model.access.csv',
+    'security/ir.model.access.csv',
   ],
 
 
