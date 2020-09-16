@@ -35,7 +35,7 @@
         
         <menuitem id="menu_clinica_patient_auth"
             name="Autorizacion de paciente"
-            parent="clinica_doctor_data.calendar_cancel_menu"
+            parent="clinica_digital_consultorio.calendar_cancel_menu"
             action="action_clinica_patient_auth"
             sequence="9"
             groups="base.group_system,base.group_erp_manager"

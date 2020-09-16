@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-  'name':'Formulario personalizado - Website',
+  'name':'Formulario personalizado - Consultorio',
   'summary': """
         EvoluZion, S.A
     """,

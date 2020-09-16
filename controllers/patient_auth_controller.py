@@ -12,6 +12,6 @@ class PatientAuthController(http.Controller):
 	def patient_auth(self, **kw):
 		cat = http.request.env['clinica.patient.auth']
 		
-		return http.request.render('clinica_doctor_data.patient_auth_template', {
+		return http.request.render('clinica_digital_consultorio.patient_auth_template', {
 			'auth': cat.search([])
 			})

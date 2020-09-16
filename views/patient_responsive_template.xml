@@ -10,23 +10,23 @@
 			    <div class="container main__patient">
 			    	<h1 style="color:#ecfeff; margin-top: 12px; text-align: center;">Datos personales</h1>
 			        <div class="main__patientContent">
-			          <input type="text" name="id" class="form-control" t-attf-value="{{ data['id'] }}" style="display:none;"/>
+			          <input type="text" name="id" class="form-control" t-attf-value="{{ data['id'] }}" style="display:none;" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          <div class="input-type input-text">
 			          	<label for="name">Primer Nombre</label><br/>
-			            <input type="text" name="firstname" class="form-control" t-attf-value="{{ data['firstname'] }}"/>
+			            <input type="text" name="firstname" class="form-control" t-attf-value="{{ data['firstname'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-type input-text">
 			          	<label for="name">Segundo Nombre</label><br/>
-			            <input type="text" name="middlename" class="form-control" t-attf-value="{{ data['middlename'] }}"/>
+			            <input type="text" name="middlename" class="form-control" t-attf-value="{{ data['middlename'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-type input-text">
 			          	<label for="name">Primer Apellido</label><br/>
-			            <input type="text" name="lastname" class="form-control" t-attf-value="{{ data['lastname'] }}"/>
+			            <input type="text" name="lastname" class="form-control" t-attf-value="{{ data['lastname'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-type input-text">
 			          	<label for="name">Segundo Apellido</label><br/>
 			            <!-- <input type="text" name="surname" class="" t-attf-value="{{ data['surname'] }}"/> -->
-			            <input type="text" name="surname" class="form-control" t-attf-value="{{ data['surname'] }}"/>
+			            <input type="text" name="surname" class="form-control" t-attf-value="{{ data['surname'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-text">
 			          	<label for="name">Fecha Nacimiento</label><br/>
@@ -40,11 +40,11 @@
 			          </div>
 			          <div class="input-type input-text">
 			          	<label for="name">Teléfono</label><br/>
-			            <input type="text" name="phone" class="form-control" t-attf-value="{{ data['phone'] }}"/>
+			            <input type="text" name="phone" class="form-control" t-attf-value="{{ data['phone'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-type input-text">
 			          	<label for="name">Email</label><br/>
-			            <input type="text" name="email" class="form-control" t-attf-value="{{ data['email'] }}"/>
+			            <input type="text" name="email" class="form-control" t-attf-value="{{ data['email'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			          </div>
 			          <div class="input-text">
 			          	<label for="name" class="control-label">Tipo de sangre</label><br/>
@@ -117,7 +117,7 @@
 				        </div>
 				        <div class="input-type input-text">
 				        	<label for="name">Dirección Residencia</label>
-		            		<input type="text" name="residence_address" class="form-control" t-attf-value="{{ data['residence_address'] }}"/>
+		            		<input type="text" name="residence_address" class="form-control" t-attf-value="{{ data['residence_address'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 				        </div>
 			        </div>
 			        <div class="line-space"></div>
@@ -132,7 +132,7 @@
 			        	</div>
 			        	<div class="input-type input-text">
 			        		<label for="name">Ocupación</label><br/>
-				            <input type="text" name="occupation" class="form-control" t-attf-value="{{ data['occupation'] }}"/>
+				            <input type="text" name="occupation" class="form-control" t-attf-value="{{ data['occupation'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			        	</div>
 			        </div>
 			        <div class="line-space"></div>
@@ -141,7 +141,7 @@
 			        <div class="main__patientContent">
 			        	<div class="input-type input-text">
 			        		<label for="name">Nombre</label><br/>
-				            <input type="text" name="accompany_name" class="form-control" t-attf-value="{{ data['accompany_name'] }}"/>
+				            <input type="text" name="accompany_name" class="form-control" t-attf-value="{{ data['accompany_name'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			        	</div>
 			        	<div class="input-text">
 			        		<label for="name">Parentesco</label><br/>
@@ -151,7 +151,7 @@
 			        	</div>
 			        	<div class="input-type input-text">
 			        		<label for="name">Número de Teléfono</label><br/>
-				            <input type="text" name="accompany_phone" class="form-control" t-attf-value="{{ data['accompany_phone'] }}"/>
+				            <input type="text" name="accompany_phone" class="form-control" t-attf-value="{{ data['accompany_phone'] }}" required="true" oninvalid="this.style.borderColor = 'red'"/>
 			        	</div>
 			        	<input type="text" name="copy_responsible_info" class="form-control" t-att-value="True" style="display:none;"/>
 			        </div>
@@ -160,7 +160,7 @@
 			        <h1 style="color:#ecfeff; margin: 12px 0px 15px 0px; text-align: center;">Motivo de Consulta</h1>
 			        <div class="main__patientContent">
 			        	<div class="input-type input-text">
-			        		<textarea style="max-width: 270px;" rows="4" cols="50" name="consultation_reason" class="form-control" form="patientForm" t-attf-value="{{ data['consultation_reason'] }}"></textarea>
+			        		<textarea style="max-width: 270px;" rows="4" cols="50" name="consultation_reason" class="form-control" form="patientForm" t-attf-value="{{ data['consultation_reason'] }}" required="true" oninvalid="this.style.borderColor = 'red'"></textarea>
 			        	</div>
 			        </div>
 			        <div>
